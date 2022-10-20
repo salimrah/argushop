@@ -1,0 +1,28 @@
+services:
+    mysqldb:
+        container_name: mysqldb
+        image: mysql:8.0-oracle
+        restart: unless-stopped
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+        ports:
+            - "3306:3306"
+        networks:
+            - mysql_net
+        volumes:
+            - mysql_vol:/var/lib/mysql
+
+    adminer:
+        image: adminer
+        container_name: adminer
+        restart: unless-stopped
+        ports:
+            - 8180:8080
+        networks:
+            - mysql_net
+volumes:
+    mysql_vol:
+
+networks:
+    mysql_net:
+        driver: bridge
