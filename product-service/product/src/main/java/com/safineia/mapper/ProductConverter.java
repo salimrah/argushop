@@ -1,7 +1,7 @@
 package com.safineia.mapper;
 
 import com.safineia.dto.AddProductRequest;
-import com.safineia.dto.ProductFullDetailsResponse;
+import com.safineia.dto.ProductDetailsResponse;
 import com.safineia.dto.UpdateProductRequest;
 import com.safineia.entity.Product;
 import org.springframework.stereotype.Component;
@@ -9,9 +9,9 @@ import org.springframework.stereotype.Component;
 @Component
 public interface ProductConverter {
 
-      Product convert(ProductFullDetailsResponse productFullDetailsResponse);
+      Product convert(ProductDetailsResponse productFullDetailsResponse);
 
-      ProductFullDetailsResponse convert(Product product);
+      ProductDetailsResponse convert(Product product);
 
       Product convert(UpdateProductRequest updateProductRequest);
 

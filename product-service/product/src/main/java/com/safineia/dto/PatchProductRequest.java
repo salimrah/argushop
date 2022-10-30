@@ -4,7 +4,7 @@ package com.safineia.dto;
 import lombok.Data;
 
 @Data
-public class ProductPatchRequest {
+public class PatchProductRequest {
 
       private Double price ;
 

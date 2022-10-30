@@ -1,7 +1,7 @@
 package com.safineia.mapper;
 
 import com.safineia.dto.AddProductRequest;
-import com.safineia.dto.ProductFullDetailsResponse;
+import com.safineia.dto.ProductDetailsResponse;
 import com.safineia.dto.UpdateProductRequest;
 import com.safineia.entity.Product;
 import org.modelmapper.ModelMapper;
@@ -19,13 +19,13 @@ public class ModelMapperProductConverter implements ProductConverter{
       }
 
       @Override
-      public Product convert(ProductFullDetailsResponse productFullDetailsResponse) {
+      public Product convert(ProductDetailsResponse productFullDetailsResponse) {
             return modelMapper.map(productFullDetailsResponse, Product.class);
       }
 
       @Override
-      public ProductFullDetailsResponse convert(Product product) {
-            return modelMapper.map(product, ProductFullDetailsResponse.class);
+      public ProductDetailsResponse convert(Product product) {
+            return modelMapper.map(product, ProductDetailsResponse.class);
       }
 
       @Override

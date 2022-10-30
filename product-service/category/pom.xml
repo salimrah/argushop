@@ -15,6 +15,25 @@
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <org.mapstruct.version>1.5.3.Final</org.mapstruct.version>
     </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct</artifactId>
+            <version>${org.mapstruct.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.modelmapper</groupId>
+            <artifactId>modelmapper</artifactId>
+            <version>3.1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.java-json-tools</groupId>
+            <artifactId>json-patch</artifactId>
+            <version>1.13</version>
+        </dependency>
+    </dependencies>
 
 </project>

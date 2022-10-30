@@ -1,11 +1,13 @@
 package com.safineia.dto;
 
+import lombok.Builder;
 import lombok.Data;
 
 import java.util.List;
 
 @Data
-public class ApiResponseList<T> {
+@Builder
+public class PageableResponse<T> {
 
       private Long totalElements ;
 

@@ -4,7 +4,7 @@ package com.safineia.dto;
 import lombok.Data;
 
 @Data
-public class ProductFullDetailsResponse {
+public class ProductDetailsResponse {
 
       private Long id ;
 

@@ -3,6 +3,7 @@ package com.safineia.controller;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.github.fge.jsonpatch.JsonPatch;
 import com.github.fge.jsonpatch.JsonPatchException;
+import com.safineia.CategoryService;
 import com.safineia.dto.*;
 import com.safineia.service.ProductService;
 import org.slf4j.Logger;
@@ -20,8 +21,11 @@ public class ProductResource {
 
       private final ProductService productService;
 
-      public ProductResource(ProductService productService) {
+      private final CategoryService categoryService ;
+
+      public ProductResource(ProductService productService, CategoryService categoryService) {
             this.productService = productService;
+            this.categoryService = categoryService;
       }
 
       @PostMapping
@@ -33,13 +37,13 @@ public class ProductResource {
       }
 
       @GetMapping
-      public ApiResponseList<ProductFullDetailsResponse> listingProducts(@RequestParam("page") Integer page, @RequestParam("size") Integer size) {
+      public PageableResponse<ProductDetailsResponse> listingProducts(@RequestParam(value = "page", defaultValue = "0" ) Integer page, @RequestParam(value = "size",defaultValue = "10") Integer size) {
             LOG.info("products list of page {} and size {} ", page, size);
             return productService.findAllProductsWithPagination(page, size);
       }
 
       @GetMapping("{productId}")
-      public ProductFullDetailsResponse getProductDetails(@PathVariable("productId") Long productId) {
+      public ProductDetailsResponse getProductDetails(@PathVariable("productId") Long productId) {
             LOG.info("finding product id : {}", productId);
             return productService.findProductById(productId);
       }

@@ -7,11 +7,10 @@ import com.github.fge.jsonpatch.JsonPatch;
 import com.github.fge.jsonpatch.JsonPatchException;
 import com.safineia.*;
 import com.safineia.dto.AddProductRequest;
-import com.safineia.dto.ApiResponseList;
-import com.safineia.dto.ProductPatchRequest;
+import com.safineia.dto.PageableResponse;
 import com.safineia.entity.ProductRepository;
 import com.safineia.mapper.ProductConverter;
-import com.safineia.dto.ProductFullDetailsResponse;
+import com.safineia.dto.ProductDetailsResponse;
 import com.safineia.entity.Product;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -43,13 +42,13 @@ public class ProductService {
       }
 
 
-      public ApiResponseList<ProductFullDetailsResponse> findAllProductsWithPagination(Integer page, Integer size) {
-            Page<ProductFullDetailsResponse> products =
+      public PageableResponse<ProductDetailsResponse> findAllProductsWithPagination(Integer page, Integer size) {
+            Page<ProductDetailsResponse> products =
                     productRepository.findAll(PageRequest.of(page, size)).map(productConverter::convert) ;
-            return ApiUtility.toApiResponseList(products);
+            return ApiUtil.pageableResponse(products);
       }
 
-      public ProductFullDetailsResponse findProductById(Long productId) {
+      public ProductDetailsResponse findProductById(Long productId) {
             return productRepository.findById(productId).map(productConverter::convert)
                     .orElseThrow(() -> new EntityNotFoundException("Product not found"));
       }
