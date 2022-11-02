@@ -8,6 +8,7 @@
   <modules>
     <module>product-service</module>
       <module>media-service</module>
+    <module>discovery-service</module>
   </modules>
   <packaging>pom</packaging>
 
@@ -22,6 +23,7 @@
     <maven.compiler.source>17</maven.compiler.source>
     <spring.boot.maven.plugin.version>2.5.7</spring.boot.maven.plugin.version>
     <spring.boot.dependencies.version>2.5.7</spring.boot.dependencies.version>
+    <spring.cloud.dependencies.version>2020.0.3</spring.cloud.dependencies.version>
   </properties>
 
 
@@ -31,6 +33,13 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-dependencies</artifactId>
         <version>${spring.boot.dependencies.version}</version>
+        <scope>import</scope>
+        <type>pom</type>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-dependencies</artifactId>
+        <version>${spring.cloud.dependencies.version}</version>
         <scope>import</scope>
         <type>pom</type>
       </dependency>

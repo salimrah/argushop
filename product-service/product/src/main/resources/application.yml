@@ -21,3 +21,8 @@ spring:
                 dialect: org.hibernate.dialect.MySQL8Dialect #org.hibernate.dialect.PostgreSQLDialect
                 format_sql: true
         show-sql: true
+
+eureka:
+    client:
+        service-url:
+            defaultZone: http://localhost:8761/eureka
