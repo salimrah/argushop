@@ -6,8 +6,8 @@
   <artifactId>argushop</artifactId>
   <version>1.0-SNAPSHOT</version>
   <modules>
-    <module>product-service</module>
-      <module>media-service</module>
+    <module>advertising-service</module>
+    <module>media-service</module>
     <module>discovery-service</module>
   </modules>
   <packaging>pom</packaging>
